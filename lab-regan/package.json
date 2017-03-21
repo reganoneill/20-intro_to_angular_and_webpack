@@ -1,0 +1,28 @@
+{
+  "name": "lab-regan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "lint": "jshint **.js",
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "cowsay-browser": "^1.1.8",
+    "css-loader": "^0.27.3",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.1",
+    "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

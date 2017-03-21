@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='cowsayLab'>
+  <head>
+    <title>Congrats! You've Arrived in Cowtropolis</title>
+  </head>
+  <body>
+    <main>
+      <section class='container' ng-controller='CowsayController'>
+        <div class='top-holder'>
+        <h2>{{ cowsayCtrl.title }}</h2>
+        </div>
+        <pre class='cow' ng-model='cowsayCtrl.grabThis'>
+          {{ cowsayCtrl.speak(cowsayCtrl.text) }}
+        </pre>
+        <input type="text" ng-model='cowsayCtrl.text'>
+        <button ng-click='cowsayCtrl.logger(cowsayCtrl.text)'>
+          Log text to the console!
+        </button>
+      </section>
+      <section class='container' ng-controller='CowsayController'>
+        <h2>Now For Some Fancy Two-Way Data Binding - bya!</h2>
+        <p class='bind-text'>{{ cowsayCtrl.bindText }}</p>
+        <input type="text" ng-model='cowsayCtrl.bindText'>
+      </section>
+    </main>
+  </body>
+</html>
