@@ -1,114 +1,129 @@
+//base styles
 * {
   box-sizing: border-box;
 }
-//
-// body {
-//   // display: flex;
-// }
-// .container{
-//   .top-holder h2{
-//     // display: flex;
-//     // justify-content: space-around;
-//     // align-items: center;
-//   }
-  .cow{
-    // display: flex;
-    // justify-content: space-around;
-    // align-items: center;
-    background: #400ee2;
-    color: #9993aa;
-  }
-//}
-// NEW CSS STARTS HERE
-
-//base
 body {
+  min-height: 100%;
   // display: flex;
-  // flex-direction: column;
+  background: #31CF7F;
+  font-family: 'Nunito', sans-serif;
 }
 header {
   display: flex;
   align-items: center;
   height: 4em;
-  // justify-content: flex-end;
   background: #2FB4C5;
-  outline: 2px red dotted;
-
   nav {
     display: flex;
     width: 100%;
     justify-content: space-between;
     .navLeft{
       display: flex;
-      justify-content: center;
-      width: 10%;
+      margin-left: 0.5em;
+      align-items: center;
+      width: 35%;
+      color: #eee;
+      font-size: 1.2em;
     }
     .navRight{
       display: flex;
+      align-items: center;
       width: 30%;
       ul {
-        width: 100%;
+        width: 90%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        a{
+          text-decoration: none;
+          color: #eee;
+        }
+        li:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 }
-//
-// main {
-//   display: flex;
-//   width: 100%;
-//   padding: 2em;
-// }
-//
-// section {
-//   display: flex;
-//   width: 85%;
-//   flex-wrap: wrap;
-//   align-content: center;
-//   flex-direction: column;
-// }
-//
-// .leftContent {
-//
-// }
-// .history {
-//   display: flex;
-// }
-//
-// .cow {
-//   width: 50%;
-// }
-// form {
-//   display: flex;
-//   width: 50%;
-//   flex-direction: column;
-//   outline: 1px black dotted;
-// }
-.upperForm {
-  outline: green 2px dotted;
-  margin-top: -15em;
-  margin-right: 10%;
-  float: right;
-  * {
-    display: block;
-    margin-left: auto;
-  }
-    input{
-      margin: 4em 0 4em 0;
-    }
-}
-.undoButton {
+
+footer {
+border-top: 1px solid #491763;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 3em;
+background: #2FB4C5;
+margin-top: 7em;
+color: #eee;
+flex-direction: column;
+p {
+  font-size: 9px;
   display: block;
-  margin-left: auto;
-  margin-right: 10%;
-  width: 5%;
 }
-.cow {
-  display: block;
-  width: 60%;
+}
+
+
+//general element rules
+h2 {
+  font-size: 8vh;
+  color: #eee;
+  margin: 2% 0 0 2.5%;
+  // width: 45%;
 }
 
 button {
   width: 100%;
+}
+
+//layout and modules
+.cow {
+    border: 0.5em solid #491763;
+    color: #eee;
+    margin: 2% 0 0 2.5%;
+    width: 45%;
+}
+
+.upperForm {
+  color: white;
+  margin-top: -17em;
+  width: 15%;
+  margin-right: 30%;
+  float: right;
+  * {
+    display: block;
+    width: 15em;
+    height: 2.5em;
+    border-radius: 5px;
+  }
+  label {
+    margin-bottom: -1em;
+    margin-top: 1.25em;
+  }
+  button {
+    color: #832FA6;
+    font-style: bold;
+    font-size: 1.25vw;
+    text-transform: uppercase;
+    background: #eee;
+  }
+}
+.undo {
+  margin-right: 30%;
+  float: right;
+  width: 15%;
+  margin-top: -3em;
+  .undoButton {
+    background: #eee;
+    width: 15em;
+    height: 2.5em;
+    border-radius: 5px;
+
+  }
+}
+.monster {
+  width: 3em;
+  height: 3em;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
