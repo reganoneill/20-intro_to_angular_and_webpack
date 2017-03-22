@@ -13,7 +13,7 @@ cowsayLab.controller('CowsayController', ['$log', CowsayController]);
 function CowsayController($log){
   $log.debug('CowsayController');
 
-  this.title = 'CowVille! Where Milk Flows Freely';
+  this.title = 'Creature Creator! Create a combo!';
   this.history = [];
 
   cowsay.list((err, cowfiles) => {
