@@ -8,29 +8,56 @@ const cowsay = require('cowsay-browser');
 
 const cowsayLab = angular.module('cowsayLab', []);
 
-cowsayLab.controller('CowsayController', ['$log','$scope', CowsayController]);
+cowsayLab.controller('CowsayController', ['$log', CowsayController]);
 
-function CowsayController($log, $scope){
+function CowsayController($log){
   $log.debug('CowsayController');
 
-  let cowsayCtrl = $scope.cowsayCtrl = {};
+  this.title = 'CowVille! Where Milk Flows Freely';
+  this.history = [];
 
-  cowsayCtrl.title = 'Welp, looks like u made it 2 Cowville, hmmm??';
+  cowsay.list((err, cowfiles) => {
+    this.cowfiles = cowfiles;
+    this.current = this.cowfiles[0];
+  });
 
-  cowsayCtrl.speak = function(input){
+  this.update = function(input){
+    $log.debug('cowsayCtrl.update');
+    return cowsay.say({ text: input || 'Say wut?', f: this.current });
+  }
+
+  this.speak = function(input){
     $log.debug('cowsayCtrl.speak');
-    return cowsay.say({text: input || 'I am just a cow!'});
+    // return cowsay.say({text: input || 'I am just a cow!'});
+    this.spoken = this.update(input);
+    this.history.push(this.spoken);
   };
 
-  cowsayCtrl.logger = function(input){
-    $log.debug('cowsayCtrl.logger');
-    $log.log(input);
+  this.undo = function(){
+    $log.debug('cowsayCtrl.undo');
+    this.history.pop();
+    this.spoken = this.history.pop() || '';
   };
-
-  cowsayCtrl.copyCow = function(input){
-    $log.debug('cowsayCtrl.copyCow');
-
-  };
-
-
 };
+
+cowsayLab.controller('NavController', ['$log', NavController]);
+
+function NavController($log){
+  $log.debug('NavController');
+  this.routes = [
+    {
+      name: 'home',
+      url: '/home'
+    },
+    {
+      name: 'about',
+      url: '/about-us'
+    },
+    {
+      name: 'contact',
+      url:  '/contact-us'
+    }
+  ];
+}
+
+//regan

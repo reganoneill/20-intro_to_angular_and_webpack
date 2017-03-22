@@ -1,21 +1,114 @@
-body {
-  background:#11cc19;
-  display: flex;
+* {
+  box-sizing: border-box;
 }
-.container{
-  .top-holder h2{
-    display: flex;
-    color: #eee491;
-    height: 4em;
-    justify-content: space-around;
-    align-items: center;
-  }
+//
+// body {
+//   // display: flex;
+// }
+// .container{
+//   .top-holder h2{
+//     // display: flex;
+//     // justify-content: space-around;
+//     // align-items: center;
+//   }
   .cow{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-around;
+    // align-items: center;
     background: #400ee2;
-
     color: #9993aa;
   }
+//}
+// NEW CSS STARTS HERE
+
+//base
+body {
+  // display: flex;
+  // flex-direction: column;
+}
+header {
+  display: flex;
+  align-items: center;
+  height: 4em;
+  // justify-content: flex-end;
+  background: #2FB4C5;
+  outline: 2px red dotted;
+
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .navLeft{
+      display: flex;
+      justify-content: center;
+      width: 10%;
+    }
+    .navRight{
+      display: flex;
+      width: 30%;
+      ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+//
+// main {
+//   display: flex;
+//   width: 100%;
+//   padding: 2em;
+// }
+//
+// section {
+//   display: flex;
+//   width: 85%;
+//   flex-wrap: wrap;
+//   align-content: center;
+//   flex-direction: column;
+// }
+//
+// .leftContent {
+//
+// }
+// .history {
+//   display: flex;
+// }
+//
+// .cow {
+//   width: 50%;
+// }
+// form {
+//   display: flex;
+//   width: 50%;
+//   flex-direction: column;
+//   outline: 1px black dotted;
+// }
+.upperForm {
+  outline: green 2px dotted;
+  margin-top: -15em;
+  margin-right: 10%;
+  float: right;
+  * {
+    display: block;
+    margin-left: auto;
+  }
+    input{
+      margin: 4em 0 4em 0;
+    }
+}
+.undoButton {
+  display: block;
+  margin-left: auto;
+  margin-right: 10%;
+  width: 5%;
+}
+.cow {
+  display: block;
+  width: 60%;
+}
+
+button {
+  width: 100%;
 }

@@ -4,23 +4,60 @@
     <title>Congrats! You've Arrived in Cowtropolis</title>
   </head>
   <body>
-    <main>
-      <section class='container' ng-controller='CowsayController'>
-        <div class='top-holder'>
-        <h2>{{ cowsayCtrl.title }}</h2>
+    <header>
+      <nav ng-controller='NavController as navCtrl' class='navMenu'>
+        <div class='navLeft'>
+          <div>Icon</div>
+          <div>Cow City</div>
         </div>
-        <pre class='cow' ng-model='cowsayCtrl.grabThis'>
-          {{ cowsayCtrl.speak(cowsayCtrl.text) }}
-        </pre>
-        <input type="text" ng-model='cowsayCtrl.text'>
-        <button ng-click='cowsayCtrl.logger(cowsayCtrl.text)'>
-          Log text to the console!
-        </button>
-      </section>
-      <section class='container' ng-controller='CowsayController'>
-        <h2>Now For Some Fancy Two-Way Data Binding - bya!</h2>
-        <p class='bind-text'>{{ cowsayCtrl.bindText }}</p>
-        <input type="text" ng-model='cowsayCtrl.bindText'>
+        <div class='navRight'>
+          <ul>
+            <li ng-repeat='route in navCtrl.routes'>
+              <a href="{{ route.url }}">{{ route.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+
+      <section class='container' ng-controller='CowsayController as cowsayCtrl'
+       ng-init='cowsayCtrl.current = "squirrel"'>
+
+
+        <div class='topLeftContent'>
+          <h2>{{ cowsayCtrl.title }}</h2>
+          <pre class='cow'>
+            {{ cowsayCtrl.update(cowsayCtrl.text) }}
+          </pre>
+        </div>
+
+
+        <form
+          ng-submit='cowsayCtrl.speak(cowsayCtrl.text)'
+          name='cowsayForm'
+          novalidate>
+
+          <div class='upperForm'>
+            <select ng-model='cowsayCtrl.current'>
+              <option ng-repeat='cowfile in cowsayCtrl.cowfiles' value='{{ cowfile }}'>
+                {{cowfile}}
+              </option>
+            </select>
+            <input type="text" ng-model='cowsayCtrl.text' required>
+            <button type='submit'>Speak!</button>
+          </div>
+
+
+          <div ng-show='cowsayCtrl.spoken' class='history'>
+            <div class='bottomLeftContent'>
+              <pre class='cow'>
+                {{ cowsayCtrl.spoken }}
+              </pre>
+            </div>
+            <button class='undoButton' type='button' ng-click='cowsayCtrl.undo()'>Undo!</button>
+          </div>
+        </form>
       </section>
     </main>
   </body>
